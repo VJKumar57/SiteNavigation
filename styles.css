@@ -34,7 +34,7 @@ main {
 }
 
 #search-bar {
-    /* margin-left: auto; /* Push the search bar to the right */
+    margin-left: auto; /* Push the search bar to the right */
     padding: 10px;
     box-sizing: border-box;
 }
