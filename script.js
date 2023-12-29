@@ -17,6 +17,16 @@ function loadPage(page) {
     xhttp.send();
 }
 
+function handleSearch() {
+    var searchTerm = document.getElementById('search-bar').value.toLowerCase();
+
+    if (searchTerm === 'quiz') {
+        // Navigate to the quiz page
+        loadPage('quiz');
+    }
+    // Add additional conditions for other search terms/pages as needed
+}
+
 // Toggle the visibility of the menu on small screens
 document.getElementById('menu-icon').addEventListener('click', function () {
     var menu = document.getElementById('menu');
