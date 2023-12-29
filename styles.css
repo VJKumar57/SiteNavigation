@@ -1,75 +1,22 @@
 body {
-    margin: 0;
     font-family: 'Arial', sans-serif;
-}
-
-header {
-    background-color: #333;
-    padding: 10px;
-    color: white;
-    text-align: center;
-}
-
-header h2 {
-    background-color: #333;
-    padding: 5px;
-    color: white;
-    text-align: center;
-}
-
-nav {
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: space-between;
-    background-color: #444;
-    padding: 10px;
-    align-items: center; /* Align items vertically in the center */
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-}
-
-#menu-icon {
-    display: none;
-    cursor: pointer;
-}
-
-main {
-    padding: 20px;
-}
-
-#search-bar {
-    margin-left: auto; /* Push the search bar to the right */
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-#profile {
-    text-align: right;
-    margin-left: auto; /* Push the profile section to the right */
-    color: white;
-}
-
-#profile img {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-#main img {
-    width: 700px;
-    height: 400px;
-    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
 }
 
 .container {
+    max-width: 400px; /* Set your desired maximum width */
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn't add to the width */
 }
 
 form {
@@ -86,6 +33,7 @@ input {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding doesn't add to the height */
 }
 
 button {
@@ -96,6 +44,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
 }
+
 
 /* Media Query for Responsive Design */
 @media only screen and (max-width: 768px) {
