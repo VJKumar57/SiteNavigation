@@ -34,6 +34,9 @@ function handleSearch() {
             case 'dashboard':
                 loadPage('dashboard');
                 break;
+            case 'about':
+                loadPage('about');
+                break;
             default:
                 loadPage('home');
                 break;
