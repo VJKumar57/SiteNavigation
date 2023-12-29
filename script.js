@@ -37,6 +37,12 @@ function handleSearch() {
             case 'about':
                 loadPage('about');
                 break;
+            case 'sign up':
+                loadPage('signup');
+                break;
+            case 'sign in':
+                loadPage('signin');
+                break;
             default:
                 loadPage('index');
                 break;
