@@ -49,6 +49,7 @@ main {
 #profile {
     text-align: right;
     margin-left: auto; /* Push the profile section to the right */
+    color: white;
 }
 
 #profile img {
