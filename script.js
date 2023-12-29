@@ -44,12 +44,12 @@ function handleSearch() {
                 loadPage('signin');
                 break;
             default:
-                loadPage('index');
+                loadPage('home');
                 break;
         }
     } else {
         // Handle the case when searchTerm is null or undefined
-        loadPage('index');
+        loadPage('home');
     }
 }
 
