@@ -18,14 +18,32 @@ function loadPage(page) {
 }
 
 function handleSearch() {
-    var searchTerm = document.getElementById('search-bar').value.toLowerCase();
+    var searchTerm = document.getElementById('search-bar').value;
 
-    if (searchTerm === 'quiz') {
-        // Navigate to the quiz page
-        loadPage('quiz');
+    // Check if searchTerm is not null or undefined before converting to lowercase
+    if (searchTerm) {
+        searchTerm = searchTerm.toLowerCase();
+
+        switch (searchTerm) {
+            case 'quiz':
+                loadPage('quiz');
+                break;
+            case 'trainings':
+                loadPage('trainings');
+                break;
+            case 'dashboard':
+                loadPage('dashboard');
+                break;
+            default:
+                loadPage('home');
+                break;
+        }
+    } else {
+        // Handle the case when searchTerm is null or undefined
+        loadPage('home');
     }
-    // Add additional conditions for other search terms/pages as needed
 }
+
 
 // Toggle the visibility of the menu on small screens
 document.getElementById('menu-icon').addEventListener('click', function () {
