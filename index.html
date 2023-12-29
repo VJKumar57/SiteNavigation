@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let's Learn Accessibility</title>
+    <title>Sample Project</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
 <header>
-    <h1>Let's Learn Accessibility</h1>
+    <h1>Sample Project</h1>
 </header>
 
 <nav>
     <div id="menu-icon">&#9776;</div>
     <div id="menu">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a href="#" onclick="loadPage('home')">Home</a>
+        <a href="#" onclick="loadPage('about')">About</a>
+        <a href="#" onclick="loadPage('services')">Services</a>
+        <a href="#" onclick="loadPage('contact')">Contact</a>
     </div>
     <div id="profile">
         <img src="profile-picture.jpg" alt="Profile Picture">
-        <span>Vijay</span>
+        <span>John Doe</span>
     </div>
 </nav>
 
-<main>
-    <input type="text" id="search-bar" placeholder="Search...">
-    <p>This is the main content of the page.</p>
+<main id="main-content">
+    <!-- Content will be loaded dynamically here -->
 </main>
 
 <script src="script.js"></script>
