@@ -19,7 +19,9 @@
         <a href="#" onclick="loadPage('dashboard')">Dashboard</a>
         <a href="#" onclick="loadPage('trainings')">Trainings</a>
         <a href="#" onclick="loadPage('quiz')">Quiz</a>
-        <input type="text" id="search-bar" placeholder="Search...">
+        <div id="search-container">
+    <input type="text" id="search-bar" placeholder="Search..." oninput="handleSearch()">
+</div>
         <a href="#" onclick="loadPage('about')">About</a>
     </div>
     <div id="profile">
