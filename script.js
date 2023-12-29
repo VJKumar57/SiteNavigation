@@ -38,12 +38,12 @@ function handleSearch() {
                 loadPage('about');
                 break;
             default:
-                loadPage('home');
+                loadPage('index');
                 break;
         }
     } else {
         // Handle the case when searchTerm is null or undefined
-        loadPage('home');
+        loadPage('index');
     }
 }
 
