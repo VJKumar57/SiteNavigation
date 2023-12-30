@@ -17,17 +17,22 @@
         <a href="#" onclick="loadPage('dashboard')">Dashboard</a>
         <a href="#" onclick="loadPage('trainings')">Trainings</a>
         <a href="#" onclick="loadPage('quiz')">Quiz</a>
-        <a href="#" onclick="loadPage('signup')">Sign Up</a>
-        <a href="#" onclick="loadPage('signin')">Sign In</a>
         <div id="search-container">
     <input type="text" id="search-bar" placeholder="Search..." oninput="handleSearch()">
 </div>
         <a href="#" onclick="loadPage('about')">About</a>
     </div>
     <div id="profile">
-        <img src="Sitenavigation.png" alt="Profile Picture">
-        <span>Vijay</span>
-    </div>
+    </div> 
+    <span id="welcome-message"> Welcome back, Vijay !</span>
+</div>
+    <div class="profile-icon">
+        <img class="profile-picture" src="Sitenavigation.png" alt="Profile Picture">
+        <div class="dropdown-menu">
+            <a href="#" onclick="loadPage('signup')">Sign Up</a>
+        <a href="#" onclick="loadPage('signin')">Sign In</a>
+        </div>
+    
 </nav>
 
 <main id="main-content">
