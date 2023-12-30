@@ -1,31 +1,42 @@
+<!-- FILEPATH: /Users/vjsrinivasan/Projects/SiteNavigation/signup.html -->
+<!-- 
+    This HTML file represents the sign up page of a website.
+    It contains a form where users can enter their username, email, and password to create an account.
+    The form data is submitted to "signup_process.php" for processing.
+-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+
+  <body>
     <header>
-    <h2>Sign Up</h2>
-</header>
+      <h2>Sign Up</h2>
+    </header>
 
-<div class="container">
-    <form action="signup_process.php" method="post">
-        
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+    <div class="container">
+      <form action="signup_process.php" method="post">
+        <div class="input-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <div class="input-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <div class="input-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
 
         <button type="submit">Create Account</button>
-    </form>
-</div>
-
-</body>
+      </form>
+    </div>
+  </body>
 </html>

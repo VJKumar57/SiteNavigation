@@ -279,3 +279,41 @@ function submitQuiz() {
     // Additional logic for submitting the quiz to a server or storing results.
     document.getElementById("retake-btn").style.display = "block"; // Display the "Retake Quiz" button
 }
+
+//Script for Profile Icon image
+
+function toggleDropdownMenu() {
+    var dropdownMenu = document.querySelector('.dropdown-menu');
+    if (dropdownMenu.style.display === 'none' || dropdownMenu.style.display === '') {
+        dropdownMenu.style.display = 'block';
+    } else {
+        dropdownMenu.style.display = 'none';
+    }
+}
+// ... existing code ...
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        document.getElementById('dropdown-menu').style.display = 'none';
+    }
+});
+
+/**
+ * Represents a collection of dropdown links.
+ * @type {NodeList}
+ */
+var dropdownLinks = document.querySelectorAll('.dropdown-link');
+var dropdownMenu = document.getElementById('dropdown-menu');
+var blurTimeout;
+
+dropdownLinks.forEach(function(link) {
+    link.addEventListener('focus', function() {
+        clearTimeout(blurTimeout);
+    });
+
+    link.addEventListener('blur', function() {
+        blurTimeout = setTimeout(function() {
+            dropdownMenu.style.display = 'none';
+        }, 100); // 100ms delay
+    });
+});
