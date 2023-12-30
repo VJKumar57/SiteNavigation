@@ -24,11 +24,13 @@
     </div>
     <div id="profile"></div> 
     <span id="welcome-message"> Welcome back, Vijay!</span>
-    <div class="profile-icon">
-        <img class="profile-picture" src="Sitenavigation.png" alt="Profile Picture">
-        <div class="dropdown-menu">
-            <a href="#" onclick="loadPage('signup')">Sign Up</a>
-            <a href="#" onclick="loadPage('signin')">Sign In</a>
+    <div class="profile-picture">
+        <button onclick="toggleDropdownMenu()">
+            <img class="profile-picture" src="Sitenavigation.png" alt="Profile Picture">
+        </button>
+        <div id="dropdown-menu" class="dropdown-menu">
+            <a href="#" class="dropdown-link" onclick="loadPage('signup')">Sign Up</a>
+            <a href="#" class="dropdown-link" onclick="loadPage('signin')">Sign In</a>
         </div>
     </div>
 </nav>
