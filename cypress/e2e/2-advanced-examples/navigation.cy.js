@@ -173,3 +173,5 @@ describe("Keyboard operability for Profile Icon image", () => {
     cy.get("img.profile-picture").should("be.focused");
   });
 });
+
+ 

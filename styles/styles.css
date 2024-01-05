@@ -1,6 +1,7 @@
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -18,6 +19,36 @@ nav {
     align-items: center; /* Align items vertically in the center */
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item:hover {
+    color: inherit;
+}
+
+#menu {
+    display: flex;
+    gap: 20px;
+}
+
+/* H1 heading */
+
+.centered-heading {
+    text-align: center;
+}
+
+.profile-picture {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    display: none;
+}
+
 nav a {
     color: white;
     text-decoration: none;
@@ -29,6 +60,8 @@ nav a {
     cursor: pointer;
 }
 
+/* Search bar */
+
 #search-container {
     display: flex;
     align-items: center;
@@ -39,20 +72,56 @@ nav a {
     box-sizing: border-box;
 }
 
+.search-bar {
+    width: 300px; /* Adjust this value to your liking */
+}
+
+?/* Profile section */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-button::after {
+    display: none;
+  }
+
+.btn.dropdown-toggle.profile-button::after {
+    display: none;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.welcome-message {
+    margin-left: 20px; /* Adjust this value to your liking */
+}
+
+.profile-section {
+    display: flex;
+    align-items: right;
+}
+
 #profile {
     text-align: right;
     color: white;
 }
 #profile img {
-    width: 75px;
-    height: 60px;
+    width: 35px;
+    height: 30px;
     border-radius: 20%; /* Adjust as needed */
     margin-right: 10px;
 }
 
 .profile-picture {
-    width: 120px;  /* Adjust as needed */
-    height: 70px; /* Adjust as needed */
+    width: 50px;  /* Adjust this value to your liking */
+    height: 50px; /* Adjust this value to your liking */
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: none;
 }
 
 main {
@@ -137,6 +206,16 @@ button {
     display: block;
 }
 
+
+
+.content {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
 /* Media Query for Responsive Design */
 @media only screen and (max-width: 768px) {
 
@@ -160,7 +239,7 @@ button {
 /* Show the dropdown menu on hover */
 .profile-icon:hover .dropdown-menu {
     display: block;
-}
+
 
 /* Media Query for Responsive Design */
 @media only screen and (max-width: 768px) {

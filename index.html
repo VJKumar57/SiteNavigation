@@ -5,40 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let's Learn Accessibility</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
- <header>
-    <h1>Accessibility Testing</h1>
-</header>
-<nav>
-    <div id="menu-icon">&#9776;</div>
-    <div id="menu">
-        <a href="#" onclick="loadPage('home')" target="_parent">Home</a>
-        <a href="#" onclick="loadPage('dashboard')" target="_parent"">Dashboard</a>
-        <a href="#" onclick="loadPage('trainings')" target="_parent">Trainings</a>
-        <a href="#" onclick="loadPage('quiz')" target="_parent">Quiz</a>
-        <div id="search-container">
-            <input type="text" id="search-bar" placeholder="Search..." oninput="handleSearch()" aria-label="Search">
+<div class="content">
+    <header>
+        
+    </header>
+    <nav class="navbar">
+        <div id="menu-icon">&#9776;</div>
+        <div id="menu">
+            <a href="#" onclick="loadPage('home')" target="_parent">Home</a>
+            <a href="#" onclick="loadPage('dashboard')" target="_parent"">Dashboard</a>
+            <a href="#" onclick="loadPage('trainings')" target="_parent">Trainings</a>
+            <a href="#" onclick="loadPage('quiz')" target="_parent">Quiz</a>
+            <a href="#" onclick="loadPage('about')">About Us</a>
         </div>
-        <a href="#" onclick="loadPage('about')">About</a>
-    </div>
-    <div id="profile"></div> 
-    <span id="welcome-message"> Welcome back, Vijay!</span>
-    <div class="profile-picture">
-        <button onclick="toggleDropdownMenu()">
-            <img class="profile-picture" src="Sitenavigation.png" alt="Profile Picture">
-        </button>
-        <div id="dropdown-menu" class="dropdown-menu">
-            <a href="#" class="dropdown-link" onclick="loadPage('signup')">Sign Up</a>
-            <a href="#" class="dropdown-link" onclick="loadPage('signin')">Sign In</a>
+        <div><h1 style="color: white;" class="centered-heading">Accessibility Testing</h1></div>
+        <div class="profile-section">
+            <div id="search-container">
+                <input type="text" id="search-bar" class="search-bar" placeholder="Search..." oninput="handleSearch()" aria-label="Search">
+            </div>
+            <div id="profile"></div> 
+            <div class="profile-info">
+                <span id="welcome-message" class="welcome-message"> Welcome back, Vijay!</span>
+                <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle profile-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="profile-picture" src="profile_settings.png" alt="Profile Picture">
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" onclick="loadPage('signup')">Sign Up</a>
+                    <a class="dropdown-item" href="#" onclick="loadPage('signin')">Sign In</a>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
-
-<main id="main-content">
-    <img src="accessibility.png" alt="Automated Accessibility Testing" style="width: 700px; height: 400px;">
-</main>
-
+    </nav>
+    
+    <main id="main-content">
+        <img src="accessibility.png" alt="Automated Accessibility Testing" style="width: 700px; height: 400px;">
+    </main>
+</div>
+    
+<footer>
+    <nav>
+      <b><p style="color: white;">&copy; 2024 Central ADA Team </p></b>
+      <ul>
+        <div style="text-align: center;">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </ul>
+    </nav>
+  </footer>
 <script src="scripts/script.js"></script>
 
 </body>
