@@ -76,7 +76,7 @@ nav a {
     width: 300px; /* Adjust this value to your liking */
 }
 
-?/* Profile section */
+/* Profile section */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -84,7 +84,7 @@ nav a {
 
 .profile-button::after {
     display: none;
-  }
+}
 
 .btn.dropdown-toggle.profile-button::after {
     display: none;
@@ -109,6 +109,7 @@ nav a {
     text-align: right;
     color: white;
 }
+
 #profile img {
     width: 35px;
     height: 30px;
@@ -138,9 +139,11 @@ main {
     width: 100%;
     box-sizing: border-box; /* Ensure padding doesn't add to the width */
 }
+
 #options {
     list-style-type: none;
 }
+
 form {
     display: flex;
     flex-direction: column;
@@ -149,6 +152,7 @@ form {
 #welcome-message {
     color: white;
 }
+
 label {
     margin-top: 10px;
 }
@@ -170,12 +174,12 @@ button {
     cursor: pointer;
 }
 
-
 /* Code for the Quiz */
 
 #question-container {
     text-align: left;
 }
+
 #button-container {
     display: flex;
     justify-content: center;
@@ -206,8 +210,6 @@ button {
     display: block;
 }
 
-
-
 .content {
     flex: 1 0 auto;
 }
@@ -215,31 +217,6 @@ button {
 footer {
     flex-shrink: 0;
 }
-
-/* Media Query for Responsive Design */
-@media only screen and (max-width: 768px) {
-
-/* Hide the dropdown menu by default */
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-menu a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Show the dropdown menu on hover */
-.profile-icon:hover .dropdown-menu {
-    display: block;
-
 
 /* Media Query for Responsive Design */
 @media only screen and (max-width: 768px) {
@@ -273,5 +250,10 @@ footer {
         margin-left: 0; /* Reset margin for small screens */
         text-align: center; /* Center the profile section for small screens */
         margin-top: 10px; /* Add some space between profile and search bar for small screens */
+    }
+
+    /* Show the dropdown menu on hover */
+    .profile-icon:hover .dropdown-menu {
+        display: block;
     }
 }
