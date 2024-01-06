@@ -1,55 +1,26 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import bcrypt from 'bcrypt';
-import mongoose from 'mongoose';
+const express = require('express');
+const bodyParser = require('body-parser');
+const { registerUser, loginUser } = require('./userManagement');
 
 const app = express();
 const port = 3000;
 
-// Connect to MongoDB (replace the connection string with your MongoDB Atlas connection string)
-mongoose.connect('mongodb+srv://vijaysmiles25:<>@cluster0.0rpa78t.mongodb.net/?retryWrites=true&w=majority');
-
-const userSchema = new mongoose.Schema({
-    username: String,
-    password: String,
-});
-
-const User = mongoose.model('User', userSchema);
-
 app.use(bodyParser.json());
 
-app.get('/', (_, res) => {
-    res.sendFile(__dirname + '/signup.html');
-});
-
+// API endpoint for user registration
 app.post('/signup', (req, res) => {
     const { username, password } = req.body;
+    registerUser(username, password);
+    res.send('User registered successfully!');
+});
 
-    // Dummy validation (you may want to add more validation logic)
-    if (!username || !password) {
-        return res.json({ success: false, message: 'Invalid data' });
-    }
-
-    // Hash the password before storing it
-    bcrypt.hash(password, 10, (err, hashedPassword) => {
-        if (err) {
-            console.error('Error hashing password:', err);
-            return res.json({ success: false, message: 'Error hashing password' });
-        }
-
-        // Store the user data in MongoDB
-        const newUser = new User({ username: username, password: hashedPassword });
-        newUser.save((err) => {
-            if (err) {
-                console.error('Error saving user:', err);
-                return res.json({ success: false, message: 'Error saving user' });
-            }
-
-            return res.json({ success: true, message: 'Sign up successful' });
-        });
-    });
+// API endpoint for user login
+app.post('/signin', (req, res) => {
+    const { username, password } = req.body;
+    loginUser(username, password);
+    res.send('Login attempt processed.');
 });
 
 app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
+    console.log(`Server running on http://localhost:${port}`);
 });

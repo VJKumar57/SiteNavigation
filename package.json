@@ -9,5 +9,10 @@
   "scripts": {
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
   }
 }
