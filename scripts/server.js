@@ -1,7 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
+import express from 'express';
+import bodyParser from 'body-parser';
+import bcrypt from 'bcrypt';
+import mongoose from 'mongoose';
+import express from 'express';
 
 const app = express();
 const port = 3000;
@@ -21,7 +22,7 @@ const User = mongoose.model('User', userSchema);
 
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
     res.sendFile(__dirname + '/signup.html');
 });
 
