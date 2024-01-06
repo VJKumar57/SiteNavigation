@@ -1,3 +1,5 @@
+import { fetch } from 'node-fetch'; // Import the fetch function
+import { alert } from 'node-alert'; // Import the alert function
 // Toggle the visibility of the menu on small screens
 document.getElementById('menu-icon').addEventListener('click', function () {
     var menu = document.getElementById('menu');
@@ -320,33 +322,33 @@ dropdownLinks.forEach(function(link) {
 
 /** Code to validate user credentials **/
 function validateSignup() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
 
-            // Dummy validation (you may want to add more validation logic)
-            if (username.trim() === '' || password.trim() === '') {
-                alert('Please fill in all fields.');
-                return;
-            }
+    // Dummy validation (you may want to add more validation logic)
+    if (username.trim() === '' || password.trim() === '') {
+        alert('Please fill in all fields.'); // Use the alert function to display the error message
+        return;
+    }
 
-            // Send the signup data to the server (in this case, a Flask endpoint)
-            fetch('/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username: username, password: password }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Sign up successful!');
-                    // You can redirect the user to the login page or perform other actions here
-                } else {
-                    alert('Error: ' + data.message);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+    // Send the signup data to the server (in this case, a Flask endpoint)
+    fetch('/signup', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: username, password: password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Sign up successful!'); // Use the alert function to display the success message
+            // You can redirect the user to the login page or perform other actions here
+        } else {
+            alert('Error: ' + data.message); // Use the alert function to display the error message
         }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
