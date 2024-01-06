@@ -7,7 +7,7 @@ const app = express();
 const port = 3000;
 
 // Connect to MongoDB (replace the connection string with your MongoDB Atlas connection string)
-mongoose.connect('mongodb://<USERNAME>:<PASSWORD>@us-east-1.aws.realm.mongodb.com:27020/?authMechanism=PLAIN&authSource=%24external&ssl=true&appName=application-0-brgfe:mongodb-atlas:local-userpass', {
+mongoose.connect('mongodb+srv://vijaysmiles25:<yAjiv@cHase57!>@cluster0.0rpa78t.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
