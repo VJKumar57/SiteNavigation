@@ -2,13 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
-import express from 'express';
 
 const app = express();
 const port = 3000;
 
 // Connect to MongoDB (replace the connection string with your MongoDB Atlas connection string)
-mongoose.connect('mongodb+srv://your-username:your-password@your-cluster.mongodb.net/your-database?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://<USERNAME>:<PASSWORD>@us-east-1.aws.realm.mongodb.com:27020/?authMechanism=PLAIN&authSource=%24external&ssl=true&appName=application-0-brgfe:mongodb-atlas:local-userpass', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
