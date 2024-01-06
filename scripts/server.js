@@ -7,7 +7,7 @@ const app = express();
 const port = 3000;
 
 // Connect to MongoDB (replace the connection string with your MongoDB Atlas connection string)
-mongoose.connect('mongodb+srv://vijaysmiles25:<yAjiv@cHase57!>@cluster0.0rpa78t.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://vijaysmiles25:<>@cluster0.0rpa78t.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
