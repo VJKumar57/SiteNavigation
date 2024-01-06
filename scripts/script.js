@@ -317,3 +317,36 @@ dropdownLinks.forEach(function(link) {
         }, 100); // 100ms delay
     });
 });
+
+/** Code to validate user credentials **/
+function validateSignup() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Dummy validation (you may want to add more validation logic)
+            if (username.trim() === '' || password.trim() === '') {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Send the signup data to the server (in this case, a Flask endpoint)
+            fetch('/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: username, password: password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Sign up successful!');
+                    // You can redirect the user to the login page or perform other actions here
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
