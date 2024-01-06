@@ -1,12 +1,23 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 const app = express();
 const port = 3000;
 
-// Dummy user database (you should use a database in a real application)
-const users = [];
+// Connect to MongoDB (replace the connection string with your MongoDB Atlas connection string)
+mongoose.connect('mongodb+srv://your-username:your-password@your-cluster.mongodb.net/your-database?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
+
+const userSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+});
+
+const User = mongoose.model('User', userSchema);
 
 app.use(bodyParser.json());
 
@@ -29,10 +40,16 @@ app.post('/signup', (req, res) => {
             return res.json({ success: false, message: 'Error hashing password' });
         }
 
-        // Store the user data (you should use a database in a real application)
-        users.push({ username: username, password: hashedPassword });
+        // Store the user data in MongoDB
+        const newUser = new User({ username: username, password: hashedPassword });
+        newUser.save((err) => {
+            if (err) {
+                console.error('Error saving user:', err);
+                return res.json({ success: false, message: 'Error saving user' });
+            }
 
-        return res.json({ success: true, message: 'Sign up successful' });
+            return res.json({ success: true, message: 'Sign up successful' });
+        });
     });
 });
 
