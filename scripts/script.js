@@ -319,34 +319,39 @@ dropdownLinks.forEach(function(link) {
 });
 
 /** Code to validate user credentials **/
+/** Code to validate user credentials **/
 function validateSignup() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
 
-            // Dummy validation (you may want to add more validation logic)
-            if (username.trim() === '' || password.trim() === '') {
-                alert('Please fill in all fields.');
-                return;
-            }
+    // Dummy validation (you may want to add more validation logic)
+    if (username.trim() === '' || password.trim() === '') {
+        alert('Please fill in all fields.');
+        return;
+    }
 
-            // Send the signup data to the server (in this case, a Flask endpoint)
-            fetch('/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username: username, password: password }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Sign up successful!');
-                    // You can redirect the user to the login page or perform other actions here
-                } else {
-                    alert('Error: ' + data.message);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+    // Send the signup data to the server (in this case, a Flask endpoint)
+    fetch('/signup', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: username, password: password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // If the server indicates success, show a success message
+            alert('Sign up successful!'); // You can customize this message or use a different UI element to show success
+            // Optionally, you can redirect the user to the login page or perform other actions here
+        } else {
+            // If the server indicates an error, show the error message returned by the server
+            alert('Error: ' + data.message);
         }
+    })
+    .catch((error) => {
+        // If there's a network error or other issues, log the error to the console
+        console.error('Error:', error);
+    });
+}
+
