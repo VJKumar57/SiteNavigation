@@ -1,3 +1,4 @@
+// userManagement.js
 const fs = require('fs');
 const path = require('path');
 const { hashPassword, checkPassword } = require('./auth');
@@ -41,3 +42,4 @@ function loginUser(req, res) {
 }
 
 module.exports = { registerUser, loginUser };
+
