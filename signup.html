@@ -14,35 +14,139 @@
   </head>
 
   <body>
-      <h2>Sign Up</h2>
-      <form id="signupForm">
-          Username: <input type="text" name="username" required><br>
-          Password: <input type="password" name="password" required><br>
-          <input type="submit" value="Sign Up">
-      </form>
-  
-      <script>
-          document.getElementById('signupForm').addEventListener('submit', function (event) {
-              event.preventDefault();  // Prevent the default form submission
-  
-              const formData = new FormData(event.target);
-              const data = {};
-              formData.forEach((value, key) => {
-                  data[key] = value;
-              });
-  
-              fetch('/signup', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(data),
-              })
-              .then(response => response.text())
-              .then(message => alert(message))
-              .catch(error => console.error('Error:', error));
-          });
-      </script>
-  </body>
+
+    <h2>Registration</h2>
+
+    <form id="registrationForm">
+
+        <label for="username">Username:</label>
+
+        <input type="text" id="username" required>
+
+        <br>
+
+        <label for="password">Password:</label>
+
+        <input type="password" id="password" required>
+
+        <br>
+
+        <button type="button" onclick="register()">Register</button>
+
+    </form>
+    <ul id="user-list"></ul>
+
+    <button id="downloadButton">Download Registered Users</button>
+    
+    <script>
+
+    function generateUsersTable() {
+        const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+    
+        // Create a table element
+        const table = document.createElement('table');
+        table.classList.add('table');
+    
+        // Create table header row
+        const thead = table.createTHead();
+        const headerRow = thead.insertRow();
+        const headers = ['Username', 'Password'];
+        headers.forEach(headerText => {
+            const th = document.createElement('th');
+            th.textContent = headerText;
+            headerRow.appendChild(th);
+        });
+    
+        // Create table body with user data
+        const tbody = table.createTBody();
+        existingUsers.forEach(user => {
+            const row = tbody.insertRow();
+            const cell1 = row.insertCell();
+            const cell2 = row.insertCell();
+            cell1.textContent = user.username;
+            cell2.textContent = user.password;
+        });
+    
+        return table.outerHTML;
+    }
+    
+    function downloadUsersTable() {
+        // Generate the table
+        const usersTable = generateUsersTable();
+    
+        // Create a Blob object with the table HTML
+        const blob = new Blob([usersTable], { type: 'text/html' });
+    
+        // Create a download link for the Blob object
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'registered_users.html';
+    
+        // Append the link to the document and trigger the download
+        document.body.appendChild(a);
+        a.click();
+    
+        // Clean up
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+    
+    // Example: Trigger the download when a button is clicked
+    document.getElementById('downloadButton').addEventListener('click', downloadUsersTable);
+    
+
+    
+    
+    
+    
+    
+    
+    function register() {
+
+const username = document.getElementById('username').value;
+
+const password = document.getElementById('password').value;
+
+
+
+const userData = {
+
+    username: username,
+
+    password: password
+
+};
+
+
+
+// Check if user already exists in local storage
+
+const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+const userExists = existingUsers.some(user => user.username === username);
+
+
+
+if (!userExists) {
+
+    existingUsers.push(userData);
+
+    localStorage.setItem('users', JSON.stringify(existingUsers));
+
+    alert('Registration successful!');
+
+} else {
+
+    alert('Username already exists. Choose a different one.');
+
+}
+
+}
+
+</script>    
+
+
+</body>
   </html>
   
