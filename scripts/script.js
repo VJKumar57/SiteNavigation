@@ -447,3 +447,38 @@ function validateSignup() {
     }
   }
 
+// Script for Sing in page
+
+        function login() {
+
+            const username = document.getElementById('username').value;
+
+            const password = document.getElementById('password').value;
+
+
+
+            // Retrieve users from local storage
+
+            const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+            
+
+            // Check if entered credentials match any user
+
+            const user = existingUsers.find(user => user.username === username && user.password === password);
+
+
+
+            if (user) {
+
+                alert('Login successful!');
+
+            } else {
+
+                alert('Invalid credentials. Please try again.');
+
+            }
+
+        }
+
+// Script for Sing in page ends
